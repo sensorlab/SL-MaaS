@@ -1,0 +1,3 @@
+# For load testing script
+requests
+numpy==1.26.4
