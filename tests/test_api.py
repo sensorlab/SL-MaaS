@@ -19,7 +19,5 @@ def test_nvg_endpoint():
     # Wait for the container to be ready
     time.sleep(3)
 
-    # Create dummy input: 300 values flattened into a list of list of floats
- 
     response = requests.post("http://localhost:8000/NVG", json=data_t.tolist())
     assert response.status_code == 200
