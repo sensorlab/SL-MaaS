@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 
 # Data
-data_url = '../nvg_inference_data.pkl'
+data_url = 'nvg_inference_data.pkl'
 # labels = ["Normal", "SlowD", "SuddenD", "SuddenR", "InstaD"] 
 
 with open(data_url, 'rb') as f:
