@@ -1,12 +1,18 @@
 import requests
-
-def test_root():
-    r = requests.get("http://localhost:8000/NVG")
-    assert r.status_code == 200
-
-
-"""import requests
+from typing import List, Tuple
+import requests
+import pickle
 import numpy as np
+
+# Data
+data_url = '../nvg_inference_data.pkl'
+# labels = ["Normal", "SlowD", "SuddenD", "SuddenR", "InstaD"] 
+
+with open(data_url, 'rb') as f:
+    data_all = pickle.load(f)
+
+data_t = np.expand_dims(data_all[0], axis=0)
+
 import time
 
 def test_nvg_endpoint():
@@ -14,11 +20,6 @@ def test_nvg_endpoint():
     time.sleep(3)
 
     # Create dummy input: 300 values flattened into a list of list of floats
-    input_data = np.random.rand(300).reshape(100, 3).tolist()
-
-    response = requests.post("http://localhost:8000/NVG", json=input_data)
+ 
+    response = requests.post("http://localhost:8000/NVG", json=data_t.tolist())
     assert response.status_code == 200
-
-    result = response.json()
-    assert "pred" in result
-    assert result["pred"].isdigit() or result["pred"].startswith("tensor")"""
