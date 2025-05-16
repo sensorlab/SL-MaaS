@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pickle
 import numpy as np
 
+#added a commet to test something
 
 # Functions
 def make_request(url: str, data: List) -> Tuple[float, any]:
